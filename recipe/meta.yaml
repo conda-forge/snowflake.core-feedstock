@@ -1,5 +1,5 @@
 {% set name = "snowflake.core" %}
-{% set version = "1.1.0" %}
+{% set version = "1.8.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/snowflake_core-{{ version }}.tar.gz
-  sha256: 620a0e4026185f39e025a3db9ec6240d8f91b14d737891ea9de3f681224471ed
+  sha256: 96d6f2c61a44bc72efa229c3a8cef2f4a5d4e2c756b00e01820c8147533a8bec
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -21,7 +21,7 @@ requirements:
     - pip
   run:
     - python >={{ python_min }}
-    - atpublic >=4
+    - certifi
     - pydantic >=2
     - python-dateutil >=2.8.2
     - requests
