@@ -28,7 +28,7 @@ requirements:
     - snowflake-connector-python
     - pyyaml
     - urllib3
-    - protobuf ~= 4.0
+    - protobuf ~=4.0
 
 test:
   imports:
