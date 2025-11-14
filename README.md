@@ -143,7 +143,6 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
-* [@sfc-gh-dyadav](https://github.com/sfc-gh-dyadav/)
-* [@sfc-gh-ema](https://github.com/sfc-gh-ema/)
-* [@sfc-gh-mkeller](https://github.com/sfc-gh-mkeller/)
+* [@sfc-gh-kolszewski](https://github.com/sfc-gh-kolszewski/)
+* [@sfc-gh-kwasilewski](https://github.com/sfc-gh-kwasilewski/)
 
