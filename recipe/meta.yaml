@@ -21,13 +21,15 @@ requirements:
     - pip
   run:
     - python >={{ python_min }}
-    - certifi
+    - certifi >= 2026.10.19
+    - packaging
     - pydantic >=2
     - python-dateutil >=2.8.2
     - requests
     - snowflake-connector-python
     - pyyaml
-    - urllib3
+    - typing_extensions
+    - urllib3 >= 2
 
 test:
   imports:
@@ -46,5 +48,4 @@ about:
 
 extra:
   recipe-maintainers:
-    - sfc-gh-kolszewski
     - sfc-gh-kwasilewski
