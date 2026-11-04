@@ -1,44 +1,76 @@
-{% set name = "snowflake.core" %}
 {% set version = "1.14.0" %}
 
 package:
-  name: {{ name|lower }}
+  name: snowflake.core-split
   version: {{ version }}
 
 source:
-  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/snowflake_core-{{ version }}.tar.gz
-  sha256: 7301f38fa9b2f10009423a11637872da305a5e6ee8d2a70dc1cf9ab1973e56a6
+  - url: https://files.pythonhosted.org/packages/source/s/snowflake.core/snowflake_core-{{ version }}.tar.gz
+    sha256: 7301f38fa9b2f10009423a11637872da305a5e6ee8d2a70dc1cf9ab1973e56a6
+  # The snowflake sdist can't be built (its pyproject.toml loads a hook from
+  # upstream's monorepo that the sdist doesn't ship), so the snowflake output
+  # installs the wheel instead. It holds only package metadata.
+  - url: https://files.pythonhosted.org/packages/py3/s/snowflake/snowflake-{{ version }}-py3-none-any.whl
+    sha256: ddc5137270f8933280b0d64f7b5f840b45f38e79bedf4278e04bbd56fde495b3
+    folder: snowflake_wheel
 
 build:
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
-requirements:
-  host:
-    - python {{ python_min }}
-    - hatchling
-    - pip
-  run:
-    - python >={{ python_min }}
-    - certifi >=2026.10.19
-    - packaging
-    - pydantic >=2
-    - python-dateutil >=2.8.2
-    - requests
-    - snowflake-connector-python
-    - pyyaml
-    - typing_extensions
-    - urllib3 >=2
+outputs:
+  - name: snowflake.core
+    build:
+      noarch: python
+      script: python -m pip install . -vv --no-deps --no-build-isolation
+    requirements:
+      host:
+        - python {{ python_min }}
+        - hatchling
+        - pip
+      run:
+        - python >={{ python_min }}
+        - certifi >=2026.10.19
+        - packaging
+        - pydantic >=2
+        - python-dateutil >=2.8.2
+        - requests
+        - snowflake-connector-python
+        - pyyaml
+        - typing_extensions
+        - urllib3 >=2
+    test:
+      imports:
+        - snowflake.core
+      commands:
+        - pip check
+      requires:
+        - pip
+        - python {{ python_min }}
 
-test:
-  imports:
-    - snowflake.core
-  commands:
-    - pip check
-  requires:
-    - pip
-    - python {{ python_min }}
+  # Alias for snowflake.core under the PyPI name `snowflake`.
+  - name: snowflake
+    build:
+      noarch: python
+      script: python -m pip install snowflake_wheel/snowflake-{{ version }}-py3-none-any.whl -vv --no-deps --no-build-isolation
+    requirements:
+      host:
+        - python {{ python_min }}
+        - pip
+        - setuptools
+      run:
+        - python >={{ python_min }}
+        - {{ pin_subpackage("snowflake.core", exact=True) }}
+        - snowflake-legacy
+    test:
+      imports:
+        - snowflake.core
+        - snowflake._legacy
+      commands:
+        - pip check
+      requires:
+        - pip
+        - python {{ python_min }}
 
 about:
   summary: Snowflake Python API for Resource Management
@@ -47,5 +79,6 @@ about:
   license_file: LICENSE
 
 extra:
+  feedstock-name: snowflake.core
   recipe-maintainers:
     - sfc-gh-kwasilewski
