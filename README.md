@@ -28,6 +28,7 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-snowflake-green.svg)](https://anaconda.org/conda-forge/snowflake) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/snowflake.svg)](https://anaconda.org/conda-forge/snowflake) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/snowflake.svg)](https://anaconda.org/conda-forge/snowflake) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/snowflake.svg)](https://anaconda.org/conda-forge/snowflake) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-snowflake.core-green.svg)](https://anaconda.org/conda-forge/snowflake.core) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/snowflake.core.svg)](https://anaconda.org/conda-forge/snowflake.core) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/snowflake.core.svg)](https://anaconda.org/conda-forge/snowflake.core) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/snowflake.core.svg)](https://anaconda.org/conda-forge/snowflake.core) |
 
 Installing snowflake.core
@@ -47,7 +48,7 @@ How to use
 <summary>With conda</summary>
 
 ```
-conda install snowflake.core
+conda install snowflake snowflake.core
 ```
 
 </details>
@@ -56,7 +57,7 @@ conda install snowflake.core
 <summary>With mamba</summary>
 
 ```
-mamba install snowflake.core
+mamba install snowflake snowflake.core
 ```
 
 </details>
@@ -66,9 +67,9 @@ mamba install snowflake.core
 
 ```
 # for adding to your local project
-pixi add snowflake.core
+pixi add snowflake snowflake.core
 # for installing globally
-pixi global install snowflake.core
+pixi global install snowflake snowflake.core
 ```
 
 </details>
@@ -76,13 +77,13 @@ pixi global install snowflake.core
 Search package versions
 -----------------------
 
-It is possible to list all of the versions of `snowflake.core` available on your platform:
+It is possible to list all of the versions of `snowflake` available on your platform:
 
 <details>
 <summary>With conda</summary>
 
 ```
-conda search snowflake.core --channel conda-forge
+conda search snowflake --channel conda-forge
 ```
 
 </details>
@@ -91,7 +92,7 @@ conda search snowflake.core --channel conda-forge
 <summary>With mamba</summary>
 
 ```
-mamba search snowflake.core --channel conda-forge
+mamba search snowflake --channel conda-forge
 ```
 
 </details>
@@ -100,7 +101,7 @@ mamba search snowflake.core --channel conda-forge
 <summary>With pixi</summary>
 
 ```
-pixi search snowflake.core --channel conda-forge
+pixi search snowflake --channel conda-forge
 ```
 
 </details>
@@ -110,13 +111,13 @@ pixi search snowflake.core --channel conda-forge
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search snowflake.core --channel conda-forge
+mamba repoquery search snowflake --channel conda-forge
 
-# List packages depending on `snowflake.core`:
-mamba repoquery whoneeds snowflake.core --channel conda-forge
+# List packages depending on `snowflake`:
+mamba repoquery whoneeds snowflake --channel conda-forge
 
-# List dependencies of `snowflake.core`:
-mamba repoquery depends snowflake.core --channel conda-forge
+# List dependencies of `snowflake`:
+mamba repoquery depends snowflake --channel conda-forge
 ```
 
 </details>
@@ -187,6 +188,5 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
-* [@sfc-gh-kolszewski](https://github.com/sfc-gh-kolszewski/)
 * [@sfc-gh-kwasilewski](https://github.com/sfc-gh-kwasilewski/)
 
