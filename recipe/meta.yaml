@@ -57,6 +57,7 @@ outputs:
       host:
         - python {{ python_min }}
         - pip
+        - setuptools
       run:
         - python >={{ python_min }}
         - {{ pin_subpackage("snowflake.core", exact=True) }}
