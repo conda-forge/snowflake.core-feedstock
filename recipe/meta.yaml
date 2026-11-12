@@ -1,5 +1,5 @@
 {% set name = "snowflake.core" %}
-{% set version = "1.14.0" %}
+{% set version = "1.15.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/snowflake_core-{{ version }}.tar.gz
-  sha256: 7301f38fa9b2f10009423a11637872da305a5e6ee8d2a70dc1cf9ab1973e56a6
+  sha256: d181823a78727ee7b1496461712f9f0c3f64365b95af548e98104f20a17d9698
 
 build:
   noarch: python
